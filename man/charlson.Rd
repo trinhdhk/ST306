@@ -29,7 +29,13 @@ Set to NULL if the data doesn't have ID column.}
 A tibble that contains scores for each confounders and total score.
 }
 \description{
-This function calculation the Charlson table
+This function calculates the Charlson comorbidity score table
+}
+\references{
+Charlson ME, Pompei P, Ales KL, et al.
+A new method of classifying prognostic comorbidity in longitudinal studies:
+development and validation. Journal of Chronic Diseases 1987; 40:373-383.
+DOI: \href{https://doi.org/10.1016/0021-9681(87)90171-8}{10.1016/0021-9681(87)90171-8}
 }
 \seealso{
 \link{summary.score_tbl}.
