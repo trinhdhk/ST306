@@ -111,10 +111,12 @@ summary.score_tbl <- function(x, method = NULL, ...){
   if (!length(method)) NextMethod('summary')
   else{
     stopifnot(ncol(x)>1)
+    .id.names <- names(x)[1]
     names(x)[1] <- '.id'
 
     x %>%
       dplyr::group_by(.id) %>%
-      dplyr::summarise_all(method, ...)
+      dplyr::summarise_all(method, ...) %>%
+      rename({{.id.names}} := .id)
   }
 }
