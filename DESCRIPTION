@@ -1,0 +1,23 @@
+Package: ST306
+Type: Package
+Title: A package that provides Score Table designing and calculation.
+Version: 0.1.0
+Author@R: c(person(given = "Trinh",
+                 family = "Dong",
+                 role = c("aut", "cre"),
+                 email = "trinhdhk@oucru.org"),
+          person(given = "Biostats@OUCRU-VN",
+                 role = c("cph", "fnd"),
+                 email = "biostatistics@oucru.org"))
+Maintainer: Trinh Dong Huu Khanh <trinhdhk@oucru.org>
+Description: This provides a generator and methods for creating and calculation medical score tables.
+License: MIT
+Encoding: UTF-8
+Depends: 
+  R (>= 3.2),
+  dplyr,
+  C306 (>= 0.1.2)
+Suggests:
+  tidyverse
+LazyData: true
+RoxygenNote: 6.1.1
