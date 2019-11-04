@@ -31,7 +31,7 @@ apache.ii <- ScoreTable(
                  hr = 'Heart Rate', rr = 'Respiratory Rate', aapo2 = 'AaPO2',
                  pao2 = 'PaO2', ph = 'PH', hco3 = 'HCO3-', sodium = 'Sodium', potassium = 'Potassium',
                  creatinine = 'Creatinine', hct = 'HCT', wbc = 'White-blood cell',
-                 gcs = 'Glasgow Comma Score', age = 'Age', chronic = 'Chronic'),
+                 gcs = 'Glasgow Comma Score', age = 'Age', chronic = 'Chronic', immune = 'Immunosuppression'),
   custom_cases =
     list(
       temp = list(
@@ -132,10 +132,10 @@ apache.ii <- ScoreTable(
         TRUE ~ 0
       ),
       chronic = list(
-        rowSums(liver, heart, lung, kidney) == 0 ~ 0,
+        rowSums(select(.,liver, heart, lung, kidney, immune)) == 0 ~ 0,
         as.logical(emergency) ~ 5,
         as.logical(elective) ~ 2,
-        sum(elective, emergency, na.rm = TRUE) == 0 ~ 5
+        rowSums(select(.,elective, emergency), na.rm = TRUE) == 0 ~ 5
       )
     )
 )
