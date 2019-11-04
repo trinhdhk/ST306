@@ -16,7 +16,9 @@ Encoding: UTF-8
 Depends: 
   R (>= 3.2),
   dplyr,
-  C306 (>= 0.1.2)
+  flextable,
+  huxtable,
+  C306 (>= 0.1.3)
 Suggests:
   tidyverse
 LazyData: true
