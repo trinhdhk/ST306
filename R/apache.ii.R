@@ -1,6 +1,6 @@
 #Below is bult-in APACHE.II score table.
 #' APACHE II score table
-#' @description This function calculation the APACHE II table
+#' @description This function calculates the APACHE II score table
 #' @usage
 #' apache.ii(data, id = names(data)[1],
 #' which = c('temp', 'map', 'hr', 'rr', 'aapo2', 'pao2', 'ph', 'hco3', 'sodium', 'potassium', 'creatinine', 'hct', 'wbc',
@@ -21,6 +21,10 @@
 #' Which confounders will be calculated.
 #' @return A tibble that contains scores for each confounders and total score.
 #' @seealso \link{summary.score_tbl}.
+#' @references
+#' Knaus WA, Draper EA, Wagner DP, Zimmerman JE.
+#' APACHE II: a severity of disease classification system. Crit Care Med. 1985 Oct;13(10):818-29.
+#' PMID: \href{https://www.ncbi.nlm.nih.gov/pubmed/3928249}{3928249}
 #' @export
 apache.ii <- ScoreTable(
   aliases = list(temp ='Temperature', map ='Maximum Aterial Pressure',

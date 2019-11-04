@@ -1,6 +1,6 @@
 #Below is bult-in Charlson score table.
 #' Charlson score table
-#' @description This function calculation the Charlson table
+#' @description This function calculates the Charlson comorbidity score table
 #' @usage
 #' apache.ii(data, id = names(data)[1],
 #' which = c('myocardial_infarct', 'congestive_heart_failure', 'peripheral_vascular_disease',
@@ -24,6 +24,11 @@
 #' Which confounders will be calculated.
 #' @return A tibble that contains scores for each confounders and total score.
 #' @seealso \link{summary.score_tbl}.
+#' @references
+#' Charlson ME, Pompei P, Ales KL, et al.
+#' A new method of classifying prognostic comorbidity in longitudinal studies:
+#' development and validation. Journal of Chronic Diseases 1987; 40:373-383.
+#' DOI: \href{https://doi.org/10.1016/0021-9681(87)90171-8}{10.1016/0021-9681(87)90171-8}
 #' @export
 charlson =  ScoreTable(
   confounders = c('myocardial_infarct', 'congestive_heart_failure', 'peripheral_vascular_disease',

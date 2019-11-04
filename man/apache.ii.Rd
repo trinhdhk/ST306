@@ -26,7 +26,12 @@ Set to NULL if the data doesn't have ID column.}
 A tibble that contains scores for each confounders and total score.
 }
 \description{
-This function calculation the APACHE II table
+This function calculates the APACHE II score table
+}
+\references{
+Knaus WA, Draper EA, Wagner DP, Zimmerman JE.
+APACHE II: a severity of disease classification system. Crit Care Med. 1985 Oct;13(10):818-29.
+PMID: \href{https://www.ncbi.nlm.nih.gov/pubmed/3928249}{3928249}
 }
 \seealso{
 \link{summary.score_tbl}.
