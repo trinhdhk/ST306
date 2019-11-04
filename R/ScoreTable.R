@@ -21,13 +21,13 @@
 #' following the structure of list(name = list(formulas))
 #' Each name is the name for derived confounders.
 #' Each formula in each sub-list folllows the form of condition ~ score in a "specific to general" order.
-#' This is based on \link[dplyr]{case_when}
+#' This is based on \link[dplyr]{case_when}.
 #' @return
 #' An object of class ScoreTable.
 #' When called with no data, this will print out the structure of the ScoreTable.
 #' When called with data passed, this will return a data frame of class score_tbl.
 #' @seealso
-#' \link{as.data.frame.ScoreTable}, \link{apache.ii}, \link{summary.score_tbl}
+#' \link[dplyr]{case_when}, \link{as.data.frame.ScoreTable}, \link{apache.ii}, \link{summary.score_tbl}
 #' @export
 ScoreTable <- function(confounders, scores, aliases = NULL, custom_cases){
   # First, we need to determine what we have
@@ -195,7 +195,7 @@ flextable <- function(x,...){
 #' @description A method to convert score table to flextable
 #' @method flextable ScoreTable
 #' @param x An object of class ScoreTable
-#' @param ... Additional function passed to flextable::flextable.
+#' @param ... Additional params passed to flextable::flextable.
 #' @seealso \link{print.ScoreTable}, \link{huxtable.ScoreTable}, \link{as.data.frame.ScoreTable},
 #'  \link[flextable]{flextable}
 #' @export
@@ -212,7 +212,7 @@ huxtable <- function(x,...){
 #' @description A method to convert score table to huxtable
 #' @method huxtable ScoreTable
 #' @param x An object of class ScoreTable
-#' @param ... Additional function passed to huxtable::hux.
+#' @param ... Additional params passed to huxtable::hux.
 #' @seealso \link{print.ScoreTable}, \link{huxtable.ScoreTable}, \link{as.data.frame.ScoreTable},
 #' \link[huxtable]{huxtable}
 #' @export

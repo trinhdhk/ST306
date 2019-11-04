@@ -15,7 +15,7 @@
 #'
 #' (1) Matched names with the confounders listed in which. Each would serve as one confounder in the score table or
 #'
-#' (2) Matched order with the confounders listed in which.
+#' (2) Matched orders with the confounders listed in which.
 #'
 #' @param id
 #' Column name of column id in data serving as subject id. Default is the first one.

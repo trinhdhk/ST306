@@ -25,7 +25,7 @@ Unmentioned confounders will be left intact.}
 following the structure of list(name = list(formulas))
 Each name is the name for derived confounders.
 Each formula in each sub-list folllows the form of condition ~ score in a "specific to general" order.
-This is based on \link[dplyr]{case_when}}
+This is based on \link[dplyr]{case_when}.}
 }
 \value{
 An object of class ScoreTable.
@@ -36,5 +36,5 @@ When called with data passed, this will return a data frame of class score_tbl.
 A function to formally create an object of class Score Table.
 }
 \seealso{
-\link{as.data.frame.ScoreTable}, \link{apache.ii}, \link{summary.score_tbl}
+\link[dplyr]{case_when}, \link{as.data.frame.ScoreTable}, \link{apache.ii}, \link{summary.score_tbl}
 }

@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{An object of class ScoreTable}
 
-\item{...}{Additional function passed to huxtable::hux.}
+\item{...}{Additional params passed to huxtable::hux.}
 }
 \description{
 A method to convert score table to huxtable

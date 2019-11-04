@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{An object of class ScoreTable}
 
-\item{...}{Additional function passed to flextable::flextable.}
+\item{...}{Additional params passed to flextable::flextable.}
 }
 \description{
 A method to convert score table to flextable
