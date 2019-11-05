@@ -286,9 +286,10 @@ print.ScoreTable <- function(x, pretty = TRUE,...){
 #' @method as.data.frame ScoreTable
 #' @param x An object of class ScoreTable
 #' @param pretty A logical value. Default = FALSE will create a analysable version of the table.
+#' @param ... Additional parameters passed to data.frame()
 #' @seealso \link{print.ScoreTable}, \link{huxtable.ScoreTable}, \link{flextable.ScoreTable}
 #' @export
-as.data.frame.ScoreTable <- function(x, pretty = FALSE){
+as.data.frame.ScoreTable <- function(x, pretty = FALSE, ...){
   score_table <- attr(x, 'score_table')
   aliases <- attr(x, 'alias')
   aliases.expand <- unlist(lapply(attr(x, 'name'),
@@ -310,7 +311,7 @@ as.data.frame.ScoreTable <- function(x, pretty = FALSE){
                                                            function(.c_s) .c_s[2])))
 
   # browser()
-  dt <- data.frame(Variable = aliases.expand, Condition = condition, Score = score)
+  dt <- data.frame(Variable = aliases.expand, Condition = condition, Score = score, ...)
   dt
 }
 

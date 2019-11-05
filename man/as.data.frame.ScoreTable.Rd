@@ -4,12 +4,14 @@
 \alias{as.data.frame.ScoreTable}
 \title{A method to coerce ScoreTable object to analysable data frame}
 \usage{
-\method{as.data.frame}{ScoreTable}(x, pretty = FALSE)
+\method{as.data.frame}{ScoreTable}(x, pretty = FALSE, ...)
 }
 \arguments{
 \item{x}{An object of class ScoreTable}
 
 \item{pretty}{A logical value. Default = FALSE will create a analysable version of the table.}
+
+\item{...}{Additional parameters passed to data.frame()}
 }
 \description{
 A method to coerce ScoreTable object to analysable data frame
