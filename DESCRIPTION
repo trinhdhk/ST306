@@ -14,6 +14,7 @@ Description: This provides a generator and methods for creating and calculation 
 License: MIT
 Encoding: UTF-8
 Imports:
+  crayon,
   purrr,
   rlang,
   flextable,

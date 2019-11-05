@@ -33,8 +33,8 @@ match_name <- function(data, expected_names){
   return(as.data.frame(data))
 }
 
+#' @importFrom magrittr %>%
 .calc <- function(data, score_table, id = names(data)[1], which = names(score_table), ...){
-  require(dplyr)
   # Preparing the data output
   data_call <- deparse(substitute(data))
   data <- as.data.frame(data)
@@ -72,19 +72,20 @@ match_name <- function(data, expected_names){
              # dplyr::mutate(data, {{conf_score}}:= case_when(!!!.env_adapt(fml)))
              # env = {cat('outer');print(ls(envir = parent.frame(2)))
              #   NULL}
-             data %>% mutate(
+             data %>% dplyr::mutate(
                {{conf_score}} := {
                  env_fml <- .env_adapt(fml, environment())
-                 do.call(case_when, env_fml)
+                 do.call(dplyr::case_when, env_fml)
                  # case_when(!!!.env_adapt(fml, env))
                }) %>% `[[`(conf_score)
            })
 
   # browser()
-  score <- cbind(data['.id'], as.data.frame(score) %>% mutate(total_score = rowSums(.)))
-  if (length(id)) score <- rename(score, {{id}} := .id)
+  score <- cbind(data['.id'], as.data.frame(score) %>% dplyr::mutate(total_score = rowSums(.)))
+  if (length(id)) score <- dplyr::rename(score, {{id}} := .id)
 
   class(score) <- c('score_tbl', 'tbl', 'data.frame')
+  attr(score, '.id') <- id
   return(score)
 }
 
@@ -111,12 +112,8 @@ summary.score_tbl <- function(x, method = NULL, ...){
   if (!length(method)) NextMethod('summary')
   else{
     stopifnot(ncol(x)>1)
-    .id.names <- names(x)[1]
-    names(x)[1] <- '.id'
-
-    x %>%
-      dplyr::group_by(.id) %>%
-      dplyr::summarise_all(method, ...) %>%
-      rename({{.id.names}} := .id)
+    .id <- rlang::as_quosure(as.formula(paste('~', attr(x, '.id'))))
+    if (length(.id)) x <- dplyr::group_by(x, {{.id}})
+    x %>% dplyr::summarise_all(method, ...)
   }
 }
